@@ -1,0 +1,49 @@
+pipeline{
+    
+    agent any
+    
+    
+    
+    
+    
+    stages{
+        
+        
+       
+        stage('Stage2 - Compile Code')
+        {
+            steps{
+                bat "mvn compile"
+            }
+        }
+        stage('Stage3 - Run Unit Tests')
+        {
+            steps{
+                bat "mvn test"
+            }
+        }
+        stage('Stage4 - Create Build')
+        {
+            steps{
+                
+                bat "mvn package"
+            }
+        }
+    }
+    
+    post
+    {
+        
+         failure
+    {
+        //emailext body: 'Jenkins build failed', subject: 'Jenkins build failed', to: 'dinesh9346@gmail.com'
+        
+        echo "Build Failed"
+        
+    }
+        
+        
+    }
+    
+   
+}
