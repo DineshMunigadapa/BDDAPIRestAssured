@@ -42,19 +42,17 @@ pipeline{
         }
     }
     
-    post
+ post
     {
         
-         failure
-    {
-        //emailext body: 'Jenkins build failed', subject: 'Jenkins build failed', to: 'dinesh9346@gmail.com'
+       success {
+           mail bcc: 'shivapg310@gmail.com', body: 'Build Pass', cc: 'shivach310@gmail.com', from: '', replyTo: '', subject:'EmailJenkinsPipeline for BDDAPIRestAssured', to: 'dinesh9346@gmail.com'
+        }
+        failure {
+            mail bcc: 'shivapg310@gmail.com', body: 'Build Failed', cc: 'shivach310@gmail.com', from: '', replyTo: '', subject:'EmailJenkinsPipeline for BDDAPIRestAssured', to: 'dinesh9346@gmail.com'
+        }
         
-        echo "Build Failed"
-        
-    }
-        
-        
-    }
+       } 
     
    
 }
