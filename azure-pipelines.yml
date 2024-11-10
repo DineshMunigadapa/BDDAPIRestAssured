@@ -12,11 +12,8 @@ pool:
 steps:
 - task: Maven@4
   inputs:
-    azureSubscription: 'Free Trial(688a1df9-a81d-46e3-b4d7-5293dd56beb6)'
     mavenPomFile: 'pom.xml'
     goals: 'test'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
